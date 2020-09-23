@@ -1,14 +1,15 @@
 package com.capgemini.inventorymanagementsystem.dto;
 
-import java.util.Date;
 
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 @Entity                             //it specifies that the class is entity and is mapped to a database table
 @Table(name = "productorder") //it specifies the name of the database table to be used for mapping
@@ -19,7 +20,7 @@ public class ProductOrder {
 	int orderId;        //it is the member is only visible within the class,not from another class
 	@Column(name="itemname") //to declare a column in table
 	String itemName;
-	@Column(name="quantityunit")
+	@Column(name="quantityunit")//to declare a column in table
 	int quantityUnit;
 	@Column(name="price_per_unit")
 	 double pricePerUnit;
@@ -33,6 +34,10 @@ public class ProductOrder {
   String deliveryStatus;
 	@Column(name="distributerid")
 	int distributorId;
+	@Column(name="manufacturingdate")
+	 Date manufacturingdate;
+	@Column(name="expirydate")
+Date expirydate;
 	//getter and setter methods
 	public int getOrderId() {
 		return orderId;
@@ -64,6 +69,7 @@ public class ProductOrder {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
 	public Date getOrderDate() {
 		return orderDate;
 	}
@@ -88,8 +94,20 @@ public class ProductOrder {
 	public void setDistributorId(int distributorId) {
 		this.distributorId = distributorId;
 	}
-	public ProductOrder(int orderId, String itemName, int quantityUnit, double pricePerUnit, double totalPrice,
-			Date orderDate, Date deliveryDate, String deliveryStatus, int distributorId) {
+	public Date getManufacturingdate() {
+		return manufacturingdate;
+	}
+	public void setManufacturingdate(Date manufacturingdate) {
+		this.manufacturingdate = manufacturingdate;
+	}
+	public Date getExpirydate() {
+		return expirydate;
+	}
+	public void setExpirydate(Date expirydate) {
+		this.expirydate = expirydate;
+	}
+	public ProductOrder(int orderId, String itemName, int quantityUnit, double pricePerUnit, double totalPrice, Date orderDate, Date deliveryDate, String deliveryStatus, int distributorId,
+			Date manufacturingdate, Date expirydate) {
 		super();
 		this.orderId = orderId;
 		this.itemName = itemName;
@@ -100,8 +118,13 @@ public class ProductOrder {
 		this.deliveryDate = deliveryDate;
 		this.deliveryStatus = deliveryStatus;
 		this.distributorId = distributorId;
+		this.manufacturingdate = manufacturingdate;
+		this.expirydate = expirydate;
 	}
+	public ProductOrder() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	
 }
-	
-	

@@ -1,19 +1,21 @@
 package com.capgemini.inventorymanagementsystem.dto;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "rawmaterialorder")
+@Entity    //it specifies that the class is entity and it is mapped to database table
+@Table(name = "rawmaterialorder")//it specifies the name of the database table to be used for mapping
 
 public class RawMaterialOrder {
 
-	@Id
-	@Column(name="orderid")
+	@Id     //it specifies the primary key of an entity
+	@Column(name="orderid") //to declare column in table
 	int orderId;
 	@Column(name="itemname")
     String itemName;
@@ -21,6 +23,7 @@ public class RawMaterialOrder {
 	 int quantityUnit;
 	@Column(name="price_per_unit")
  double price_per_unit;
+	
 	@Column(name="totalprice")
     double totalPrice;
 	@Column(name="orderdate")
@@ -31,6 +34,11 @@ Date orderDate;
  String deliveryStatus;
 	@Column(name="supplierid")
  int supplierId;
+	@Column(name="manufacturingdate")
+	 Date manufacturingdate;
+	@Column(name="expirydate")
+Date expirydate;
+	//getter and setter methods
 	public int getOrderId() {
 		return orderId;
 	}
@@ -85,8 +93,21 @@ Date orderDate;
 	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
 	}
+	public Date getManufacturingdate() {
+		return manufacturingdate;
+	}
+	public void setManufacturingdate(Date manufacturingdate) {
+		this.manufacturingdate = manufacturingdate;
+	}
+	public Date getExpirydate() {
+		return expirydate;
+	}
+	public void setExpirydate(Date expirydate) {
+		this.expirydate = expirydate;
+	}
 	public RawMaterialOrder(int orderId, String itemName, int quantityUnit, double price_per_unit, double totalPrice,
-			Date orderDate, Date deliveryDate, String deliveryStatus, int supplierId) {
+			Date orderDate, Date deliveryDate, String deliveryStatus, int supplierId, Date manufacturingdate,
+			Date expirydate) {
 		super();
 		this.orderId = orderId;
 		this.itemName = itemName;
@@ -97,16 +118,9 @@ Date orderDate;
 		this.deliveryDate = deliveryDate;
 		this.deliveryStatus = deliveryStatus;
 		this.supplierId = supplierId;
+		this.manufacturingdate = manufacturingdate;
+		this.expirydate = expirydate;
 	}
-
-
-	
-	
-
-	
-
-	
-
 
 
 }

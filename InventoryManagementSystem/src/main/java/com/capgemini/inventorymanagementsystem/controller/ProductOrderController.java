@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.inventorymanagementsystem.dto.ProductOrder;
 import com.capgemini.inventorymanagementsystem.service.ProductOrderService;
 
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController 
+@CrossOrigin(origins = "http://localhost:4200")  //it enables cross-origin resource sharing only for this specific method
+@RestController                                                //it is used to create restful web services using spring MVC
 public class ProductOrderController
 {
-	@Autowired
+	@Autowired                                               //can be used to autowire bean on the setter and getter method
 	ProductOrderService productOrderService;
-	public void setProductStockService(ProductOrderService productOrderService)
+	public void setProductOrderService(ProductOrderService productOrderService)
 	{
 		this.productOrderService=productOrderService;
 	}
 
 
-   @GetMapping("productorder/getOrder/{distributerId}")
-   public ProductOrder getOrder(@PathVariable int distributerId)
+   @GetMapping("productorder/getOrder/{orderId}")           //this annotation is used to get the details
+   public ProductOrder getOrder(@PathVariable int orderId) //it is used for data passed in the URI
    {
-	   return productOrderService.getOrder(distributerId);
+	   return productOrderService.getOrder(orderId);
    }
    
 }

@@ -12,10 +12,11 @@ public class RawMaterialOrderService<rmsdao> {
 	@Autowired
 	RawMaterialOrderDAO rmsdao;
 	public void setpsdao(RawMaterialOrderDAO rmsdao) { this.rmsdao=rmsdao;}
+	
 	@Transactional(readOnly=true)
-	public RawMaterialOrder getOrder(int supplierId)
+	public RawMaterialOrder getOrder(int orderId)
 	{
-		return rmsdao.getRawDetail(supplierId);
+		return rmsdao.getRawDetail(orderId);
 	}
 
 

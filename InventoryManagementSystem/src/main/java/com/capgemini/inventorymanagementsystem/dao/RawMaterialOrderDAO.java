@@ -10,6 +10,6 @@ import com.capgemini.inventorymanagementsystem.dto.RawMaterialOrder;
 @Repository
 public interface RawMaterialOrderDAO extends JpaRepository<RawMaterialOrder,Integer>
 {
-	@Query("select raw from RawMaterialOrder raw where supplierid=?1")
-	public RawMaterialOrder getRawDetail(int supplierid);
+	@Query("select raw from RawMaterialOrder raw where orderid=?1")
+	public RawMaterialOrder getRawDetail(int orderid);
 }

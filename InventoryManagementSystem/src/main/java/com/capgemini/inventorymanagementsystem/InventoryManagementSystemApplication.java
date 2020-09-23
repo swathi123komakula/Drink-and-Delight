@@ -2,11 +2,9 @@ package com.capgemini.inventorymanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
+
+@SpringBootApplication  //this annotation enables to add the beans using classpath
 public class InventoryManagementSystemApplication {
 
 	public static void main(String[] args) {
